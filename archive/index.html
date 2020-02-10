@@ -6,9 +6,9 @@
   <meta name="description" content="금융ICT에서 DevOps, SRE를 이야기합니다.">
   <meta name="keyword" content="hexo-theme, vuejs">
   <!-- for facebook-->
-  <meta property="og:url"           content="https://ziyocode.github.io/project/index.html"/>
+  <meta property="og:url"           content="https://ziyocode.github.io/archive/index.html"/>
   <meta property="og:type"          content="article" />
-  <meta property="og:title"         content="Project" />
+  <meta property="og:title"         content="Archives" />
   <meta property="og:description"   content="금융 ICT 환경에서 DevOps와 SRE" />
 
   
@@ -16,7 +16,7 @@
   
   <title>
     
-      Project | 금융ICT 인프라 이야기
+      Archives | 금융ICT 인프라 이야기
     
   </title>
 
@@ -171,75 +171,146 @@
 </header>
 
     <div id="article-banner">
-  <h2>Projects</h2>
+  <h2>Archives</h2>
+  <p class="post-date">2020-02-10</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
 </div>
-<main class="app-body project-app">
-  <div class="card-container" id="all-project"></div>
-      <!--url: 'https://api.github.com/users/yanm1ng/repos',-->
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"></section>
+    <!-- tag and share START-->
+    <div class=tag_and_share>
+      
+    <!--facebook share icon-->
+      <div class="share-facebook">
+        <div class="fb-share-button" 
+        data-href="https://ziyocode.github.io/archive/index.html"
+        data-layout="button" data-size="small">
+        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">공유하기</a>
+        </div>
+      </div>
+    </div>
+    <!-- NAV START -->
+    
+    <!-- NAV END -->
+    <!--
+    
+      <!-- Gitment START -->
+      <!--<div id="comments"></div>-->
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="nav">none</ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
 </main>
-<div class="markdown-content">
-    <center><h1>열심히 공부해서 채울려고요.</h1></center>
-    <br>
-</div>
-<!--
-<script>
-  (function() {
-    var url = 'http://ziyocode.github.io/project/index.html';
-    $('#article-banner').geopattern(url);
-    $('.header').removeClass('fixed-header')
-    $.ajax({
-      headers: {
-        Accept: 'application/vnd.github.v3.raw'
-      },
-      type: 'get',
-      url: 'https://api.github.com/users/ziyocode/repos',
-      success: function (data) {
-        var repos = data.sort(function(a, b) {
-          return (b.stargazers_count - a.stargazers_count)
-        }).slice(0, 6)
-        var cardHtml = repos.map(function(item) {
-          var description = item.description || ""
-          if (description.replace(/[\u0391-\uFFE5]/g, "aa").length > 72) {
-            description = description.slice(0, 72) + '...'
-          }
-          return (
-            '<section class="project-card">' + 
-              '<a class="card-wrap" href="'+ item.html_url +'" target="_blank">' +
-                '<div class="card-header" data-name="'+ item.name +'"></div>' +
-                '<h3 class="card-title">' + item.name + '</h3>' +
-                '<p class="card-description">' + description + '</p>' +
-                '<div class="card-footer">' +
-                  '<span><i class="fa fa-star"></i>'+ item.stargazers_count +'</span>' +
-                  '<span><i class="fa fa-code-fork"></i>' + item.forks_count +'</span>' +
-                '</div>' +
-              '</a>' +
-            '</section>'
-          )
-        }).join('')
-        $('#all-project').html(cardHtml)
-        $('.card-header').each(function() {
-          var name = $(this).data('name');
-          $(this).geopattern(name);
-        })
-      }
-    });
-  })()
-</script>
--->
+
 <script>
   (function () {
-    var url = 'http://ziyocode.github.io/project/index.html'
-    $('#article-banner').geopattern(url)
-    $('.header').removeClass('fixed-header')
-    var tag = location.hash.replace('#', '')
-    if (tag) {
-      var tagId = "#tag-" + tag;
-      $("html, body").animate({
-        scrollTop: $(tagId).offset().top 
-      }, 400)
+    var url = 'http://ziyocode.github.io/archive/index.html';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
     }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
   })();
 </script>
+
+<!--
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "Archives",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "9fce947d481f6347df54",
+          client_secret: "a3c4f0e3715aaf1d5706cda5b7d3c6448948a39c"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+ 
+
+
+
+
+ -->
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>
