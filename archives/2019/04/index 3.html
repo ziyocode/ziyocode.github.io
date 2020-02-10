@@ -16,7 +16,7 @@
   
   <title>
     
-      Tags | 금융ICT 인프라 이야기
+      금융ICT 인프라 이야기
     
   </title>
   <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -164,72 +164,74 @@
 </header>
 
     <div id="article-banner">
-  <h2>Tags</h2>
+  <h2>Archives</h2>
 </div>
-<main class="app-body">
-  <div id="tag-cloud">
+<main class="app-body" id="archives">
+  
+  
+  
+    <section class="time-section">
+  <h1 class="section-year">
+    2020
+  </h1>
+  <div class="section-list">
     
-      <a class="tag1" data-name="tag-finance">finance</a>
     
-      <a class="tag1" data-name="tag-private">private</a>
+      <div class="section-list-item">
+        <a href="/2020/01/31/history/" class="archive-title">1월도 다 지났는데 2019년 회고(?)</a>
+        <p class="archive-date">01-31</p>
+      </div>
     
   </div>
+</section>
   
-    <div class="tag-list">
-      <h3 class="tag-name" id="tag-finance">finance</h3>
-      
-        <ul class="tag-preview">
-          <li>
-            <a href="/2016/08/02/financial_ict_02/">금융IT 인프라를 이루는 기술#2</a>
-          </li>
-        </ul>
-        
-        <ul class="tag-preview">
-          <li>
-            <a href="/2016/07/16/financial_Ict_01/">금융IT 인프라를 이루는 기술#1</a>
-          </li>
-        </ul>
-        
-        <ul class="tag-preview">
-          <li>
-            <a href="/2019/04/09/finacial_ict_ing/">진화하는 금융IT 인프라</a>
-          </li>
-        </ul>
-        
-    </div>
+    <section class="time-section">
+  <h1 class="section-year">
+    2019
+  </h1>
+  <div class="section-list">
     
-    <div class="tag-list">
-      <h3 class="tag-name" id="tag-private">private</h3>
-      
-        <ul class="tag-preview">
-          <li>
-            <a href="/2020/01/31/history/">1월도 다 지났는데 2019년 회고(?)</a>
-          </li>
-        </ul>
-        
-        <ul class="tag-preview">
-          <li>
-            <a href="/2016/07/08/programming_as_a_hobby/">취미로의 프로그래밍을 꿈꾸며...</a>
-          </li>
-        </ul>
-        
-    </div>
     
+      <div class="section-list-item">
+        <a href="/2019/04/09/finacial_ict_ing/" class="archive-title">진화하는 금융IT 인프라</a>
+        <p class="archive-date">04-09</p>
+      </div>
+    
+  </div>
+</section>
+  
+    <section class="time-section">
+  <h1 class="section-year">
+    2016
+  </h1>
+  <div class="section-list">
+    
+    
+      <div class="section-list-item">
+        <a href="/2016/08/02/financial_ict_02/" class="archive-title">금융IT 인프라를 이루는 기술#2</a>
+        <p class="archive-date">08-02</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2016/07/16/financial_Ict_01/" class="archive-title">금융IT 인프라를 이루는 기술#1</a>
+        <p class="archive-date">07-16</p>
+      </div>
+    
+      <div class="section-list-item">
+        <a href="/2016/07/08/programming_as_a_hobby/" class="archive-title">취미로의 프로그래밍을 꿈꾸며...</a>
+        <p class="archive-date">07-08</p>
+      </div>
+    
+  </div>
+</section>
+  
 </main>
 
 <script>
   (function () {
-    var url = 'http://ziyocode.github.io/tags/index.html'
-    $('#article-banner').geopattern(url)
-    $('.header').removeClass('fixed-header')
-
-    var tag = location.hash.replace('#', '')
-    if (tag) {
-      var tagId = "#tag-" + tag;
-      $("html, body").animate({
-        scrollTop: $(tagId).offset().top 
-      }, 400)
-    }
+    var url = 'http://ziyocode.github.io/archives/2019/04/index.html';
+    $('#article-banner').geopattern(url);
+    $('.header').removeClass('fixed-header');
   })();
 </script>
     <div class="scroll-top">
