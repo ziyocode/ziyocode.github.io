@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="금융ICT에서 DevOps, SRE를 이야기합니다.">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  <!-- for facebook-->
+  <meta property="og:url"           content="https://ziyocode.github.io" />
+  <meta property="og:type"          content="Website" />
+  <meta property="og:title"         content="금융 ICT 인프라 이야기" />
+  <meta property="og:description"   content="금융 ICT 환경에서 DevOps와 SRE" />
+
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      진화하는 금융IT 인프라 | 금융ICT 인프라 이야기
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <!--facebook share script-->
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <!--<div class="logo"></div>-->
+      <span>금융ICT 인프라 이야기</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>진화하는 금융IT 인프라</h2>
+  <p class="post-date">2019-04-09</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><p>지금은 모든 업계가 ICT기술로 재편되는 디지털 트랜스포메이션<sup>Digital Transformation</sup>의 시대입니다. 인공지능, 빅데이타, 블록채인, IoT 등 ICT기술이 우리 삶을 변화시키고 산업을 재편하고 있습니다. 그 중 Cloud는 ICT인프라에 가장 큰 변화를 가져왔습니다. 언제까지 변하지 않을 것 같던 금융IT 인프라도 Cloud가 가져온 움직임에 조금씩 문을 열고 변하고 있습니다.</p>
+<h3 id="Cloud로-가속화-된-U2L"><a href="#Cloud로-가속화-된-U2L" class="headerlink" title="Cloud로 가속화 된 U2L"></a>Cloud로 가속화 된 U2L</h3><p>사실 Cloud 전에도 U2LUnit to Linux이란 이름으로 Linux 시스템이 도입되고 있었습니다. 전세계 사람들에게 대용량 서비스를 제공하는 구글, 아마존, 페이스북에서도 사용하는 Linux를 더이상 <strong>안정적이지 못해서 사용할 수 없습니다.</strong>라고 말할 수 없습니다. 실재로도 Linux는 매우 안정적인 운영체제로 인정 받고 있습니다. IBM, HPE, Oracle 같은 Unix System 밴더들은 철옹성 같던 금융 테러토리에서 맥을 못 추며 사라져 가고 있고, 그 자리를 Linux가 설치 된 X86 시스템이 채우고 있습니다. 생각하시는 것과 같이 금융IT 인프라는 가장 보안 안정성을 요구받는 영역입니다. 때문에 상대적으로 보수적인 문화가 있습니다. Linux를 도입할 때도 이런 보수적인 시각으로 여러가지를 검토했습니다.</p>
+<ol>
+<li>인터넷이 되지 않는 환경에서도 보안 패치 등 여러가지 보안 안정성을 갖추고 있나?</li>
+<li>별도의 유지보수 업체가 있고 계약을 통해 지원을 받을 수 있나?</li>
+<li>Enterprise 기술지원 체계에서 중요도에 맞는 상위 기술지원Escalation을 받을 수 있나?</li>
+</ol>
+<p>여러가지 금융IT 인프라의 환경적인 특정을 고려할 때 많이 채택되는 Linux 배포판은 RHEL<sup>RedHat Enterprise Linux</sup>입니다. 대용량 시스템의 OS로 이미 많은 검증을 거쳤고, 유지보수 지원체계도 비교적 우수합니다. 과거에는 <strong>“Linux는 무료 아니야?”</strong>하는 인식도 있었지만 현재는 redhat의 구독<sup>Subscription</sup>모델은 여러 Software / Cloud 환경에서도 흔해져서 그런 오해는 없어졌습니다. 사실 CentOS 와 같은 저렴한 대안도 있지만 금융권은 대부분 안정성에 비용을 지불하는 것을 선호합니다. (그것이 Software이든 서비스 이든…)<br>왜 이렇게 열심히 Linux로 전환할까요? 이유는 Cloud로의 인프라 이동의 선행 작업이기 때문입니다. 금융IT 인프라는 아직까지 Public Cloud로의 전환이 미비한 수준입니다. 과거(2016년) 금융보안원에서 발표한 “금융권 클라우드 서비스 이용 가이드”를 보면 고객 정보가 흐르는 즉 고객의 거래가 오가는 모든 장비에는 Cloud를 사용할 수 없습니다. 당시 Cloud로의 전환을 계획하고 있던 여러 금융사도 계획을 수정하여 기존과 같은 IDC 환경의 장비로 전환했다고 합니다. 하지만 2018년에 발표된 “금융권 클라우드 이용 확대방안”에는 이런 규제가 상당부분 완화되어 금융권에서도 앞다투어 Cloud로의 전환을 계획하고 있습니다. 때문에 금융IT에서 <strong>기존의 워크로드를 Linux로 전환하는 것은 미룰 수 없는 중요한 작업 입니다.</strong></p>
+<h3 id="Private-Cloud의-도입"><a href="#Private-Cloud의-도입" class="headerlink" title="Private Cloud의 도입"></a>Private Cloud의 도입</h3><p>금융IT의 모든 워크로드를 Public Cloud로 옮기는 것이 가능한 일인지는 의문입니다. 하지만 현 시점에 한정한다면 단언하건데 불가능한 일입니다. 다수의 업무가 먼저 DB를 분리하고 업무를 쪼개서 경량화하는 작업이 선행되어야 할 것입니다. 그래서 <strong>금융권의 클라우드 전략으로 대다수의 사람들이 Hybrid Cloud를 이야기합니다.</strong><br><img src="/images/hybrid_cloud.png" alt="클라우드 분류"><br>중요한 business Logic을 담당하는 시스템은 각 금융사의 IDC에 두고, Public Cloud에 올릴 수 있는 워크로드를 식별하여 전환하는 것입니다. 때문에 각 기업의 IDC는 규모는 줄어들어도 유지는 해야 합니다. 그럼 내부의 시스템을 어떻게 하면 더 효율적으로 관리할 수 있을까 하는 고민이 생깁니다. 이에 대한 해답이 Private Cloud 입니다. Private Cloud에 대한 우려섞인 목소리도 많습니다. 2013년 AWS reinvent에서 클라우드 서비스 담당 수석 부사장 앤디 재시는 Private Cloud는 Public Cloud로의 전환의 교두보 역할로 치부합니다. 물론 최근에 AWS를 위시한 Public Cloud의 발전을 보면 과연 Private Cloud의 경쟁력이 있을까? 하는 의문도 있습니다. 하지만 불과 작년까지 있었던 금융IT 인프라의 Cloud 규제를 생각하면 Private Cloud는 IaaS , PasS를 구현하는 훌륭한 대안이었습니다.<br>Private Cloud를 구현하는 솔루션은 어떤 것들이 있을까요? 검토 가능한 솔루션은 전통적인 가상화 솔루션인 VMware와 opensource 진영의 Openstack 입니다. Private cloud는 어쨋든 누군가가 On-premise 환경에서 Cloud 환경을 구축하고 관리해야 합니다. 때문에 하드웨어의 선택도 중요합니다. IDC 환경에서의 H/W는 대부분 Unix 밴더가 공급하는 Unix System과 SAN 스위치로 연결되는 Storage 그리고 Cisco 스위치로 구성하는 Network 장비였습니다. 하지만 Private Cloud에서의 H/W는 다릅니다. x86 서버에 HCI<sup>Hyper Converged Infra</sup> Storage 그리고 SDN<sup>Software Defined Network</sup>으로 구성하는 Network이 당연하게 받아들여 집니다. 때문에 Private Cloud를 도입하는데는 두가지 큰 결정이 기다리고 있습니다.</p>
+<ol>
+<li>첫째, 전체 Private Cloud를 관리하는 솔루션</li>
+<li>두째, 해당 솔루션에 적합한 H/W</li>
+</ol>
+<p>1번과 2번은 의존성이 있는 것이 있고, 없는 것이 있습니다. 예를 들어 vmware를 선택하면 H/W는 어떤 벤더의 제품을 선택하던 크게 문제가 되지 않습니다. 같은 이유로 redhat에서 공급하는 openstack을 선택해도 H/W는 어떤 벤더의 제품을 사용하던 상관이 없습니다. 하지만 1번의 어떤 솔루션은 H/W의 선택권이 제한적인 제품이 있습니다. 대표적으로 누타닉스와 같이 솔루션과 H/W를 같이 공급하거나 vmware 기반이지만 cisco의 클라우드 제품은 자사의 UCS<sup>Unified Conputing System</sup>를 사용해야 합니다.<br>Private Cloud 솔루션을 제공하는 모든 벤더는 자사 솔루션의 사용자 편의성과 관리 용이성을 강조합니다.<br>2년 전 각 솔루션에 대한 PoC를 진행하며 제가 느낀 각 벤더의 강점과 단점은 아래와 같습니다.</p>
+<ol>
+<li>VMware 기반의 솔루션들은 관리자가 편합니다. 특히 기존의 가상화 솔루션으로 VMware를 사용했다면 접근하기 쉽습니다. 특히 VMware 사에는 NXS라는 강력한 SDN 솔루션이 있습니다.</li>
+<li>openstack 기반의 솔루션은 약간의 진입 장벽이 있습니다. 팀 내에 openstack 전문가가 있어야 강력한 기능 및 관리 자동화를 할 수 있습니다. 전통적인 Unix/Linux 환경에서의 솔루션임에도 생각보다 훌륭한 UI를 갖추고 있고, 가격 경쟁력이 있습니다.</li>
+<li>전통의 MS는 Azure Stack 이란 이름의 Private Cloud 솔루션이 있습니다. “Public Cloud”에서의 모든 경험을 Private Cloud 환경에서도 경험하게 해주겠다는 목적의 솔루션입니다. 다만 아직까지는 과도기로 보이고, 장기적으로 의미있는 도전일까 의문입니다. 개인적으로는 편리한 UI와 Azure와의 호환성이 강점이라 생각합니다.</li>
+<li>NUTANIX는 많은 분들이 생소하시겠지만 Private Cloud 솔루션으로 훌륭한 제품을 공급하고 있습니다. 간단한 PoC였지만 훌륭한 관리 기능과 사용자 친화적인 UI를 볼 수 있었습니다. 다만 역시나 생소한 솔루션의 거부감과 시장에서 많이 사용하지 않는다는 점은 감점 요인 입니다.</li>
+</ol>
+<p>아래는 대표적인 Private Cloud 솔루션 입니다.</p>
+<ul>
+<li>VMware : vCloud Suite</li>
+<li>RedHat : Red Hat Cloud Infrastructure</li>
+<li>MicroSoft : Azure Stack</li>
+<li>Cisco : Private Cloud Solution</li>
+<li>Nutanix : NUTANIX Essential</li>
+</ul>
+<h3 id="DevOps의-도입"><a href="#DevOps의-도입" class="headerlink" title="DevOps의 도입"></a>DevOps의 도입</h3><p>10년 전의 금융IT는 최신 / 고급 솔루션을 도입하고 사용하는 동경의 대상이었습니다. 소스코드를 파일서버의 디렉터리로 관리하고 (before<del>, real</del>, 진짜_real~ 이 난무하는) 엑셀로 관리할 때 형상관리 솔루션을 도입하고, 날코딩으로 모든 것을 만들 때 비싼 상용 프레임워크를 도입할 수 있는 곳이 금융IT 였습니다. 당시의 가장 좋고, 비싼 솔루션을 도입할 수 있는 곳이 금융IT 였습니다. 하지만 현재는 그렇게 훌륭하지 않습니다. 고객의 “돈”을 다루는 금융업 상 보수적인 성향이 IT솔루션을 도입하는데도 적용되었고, 기존의 정상적인 솔루션을 바꾸는 데도 인색했습니다. 어쩌면 당연한 결과이고, 필요한 의사결정이라 할 수도 있습니다. 아직 성숙하지 않은 솔루션을 도입해서 고객의 서비스가 문제가 되는 것은 “새로운 기술 도입”이라는 허울 좋은 기사가 주는 홍보효과보다 큰 제앙이 될 수 있습니다. 하지만 세상이 너무나 빠르게 변하고 있고, 이를 쫓는 것을 더이상 미루면 안 됩니다. 그래서 꿈쩍 않던 금융IT도 변하고 있습니다. Cloud의 도입과 AI, 블록체인, OpenAPI, 빅데이터, Digital Experience 등 새로운 기술에 대한 고민과 연구를 하고 있습니다.<br>인프라의 측면에서는 DevOps의 도입을 준비하고 검토하고 있습니다.  고객의 요구를 빠르게 반영하기 위한 빠른 배포의 방법으로 DevOps를 도입하고 있습니다. DevOps를 위한 대표적인 CI/CD 솔루션인 Jenkins의 도입, 서비스의 빠른 배포와 경량화를 위한 Docker와 오케스트레이션을 위한 kubernetes 등을 검토하고 도입하고 있습니다.<br>물론 넘어야할 장애물도 많습니다. 너무 분화되어 서로의 영역외에는 알기 힘든 개발팀과 운영팀의 업무, 인터넷이 되지 않는 환경에서의 솔루션 도입 등은 여전히 제약사항 입니다.</p>
+<p><strong>하지만 변하고 있고, 한발씩 움직이고 있다는 것은 희망적입니다.</strong></p>
+</section>
+    <!-- tag and share START-->
+    <div class=tag_and_share>
+    <!-- Tags START -->
+      
+        <div class="tags">
+          <span>Tags:</span>
+          
+  <a href="/tags#finance" >
+    <span class="tag-code">finance</span>
+  </a>
+
+        </div>
+      
+    <!--facebook share icon-->
+      <div class="share-facebook">
+        <div class="fb-share-button" 
+        data-href="2019/04/09/finacial_ict_ing/"
+        data-layout="button_count">
+        </div>
+      </div>
+    </div>
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2016/08/02/financial_ict_02/">
+        <span class="nav-arrow">← </span>
+        
+          금융IT 인프라를 이루는 기술#2
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2020/01/31/history/">
+        
+          1월도 다 지났는데 2019년 회고(?)
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    <!--
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    -->
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    <!--
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    -->
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Cloud로-가속화-된-U2L"><span class="toc-nav-text">Cloud로 가속화 된 U2L</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Private-Cloud의-도입"><span class="toc-nav-text">Private Cloud의 도입</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#DevOps의-도입"><span class="toc-nav-text">DevOps의 도입</span></a></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://ziyocode.github.io/2019/04/09/finacial_ict_ing/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "진화하는 금융IT 인프라",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer>
+  <address class="app-footer">
+  <div class="information">
+    <div class="copyright-left">
+      <p><strong>Contact</strong></p>
+      <br>
+      <ul>
+        <li>
+          <i class="fa fa-envelope-o"></i>
+          <a href="mailto:ziyocode@gmail.com" target="_blank">ziyocode@gmail.com</a>
+        </li>
+        <li>
+          <i class="fa fa-facebook"></i>
+          <a href="https://www.facebook.com/ziyocode" target="_blank"><span>www.facebook.com/ziyocode</span></a>
+        </li>
+        <li>
+          <i class="fa fa-github"></i>
+          <a href="https://www.github.com/ziyocode" target="_blank"><span>www.github.com/ziyocode</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="copyright-right">
+      <p>
+          DevOps, Site Reliability Engineering Story
+          <br>
+          &copy; YoungKook Cho. 2020 |
+          Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+      </p>
+    </div>
+  </div>
+  </address>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

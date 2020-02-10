@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="금융ICT에서 DevOps, SRE를 이야기합니다.">
+  <meta name="keyword" content="hexo-theme, vuejs">
+  <!-- for facebook-->
+  <meta property="og:url"           content="https://ziyocode.github.io" />
+  <meta property="og:type"          content="Website" />
+  <meta property="og:title"         content="금융 ICT 인프라 이야기" />
+  <meta property="og:description"   content="금융 ICT 환경에서 DevOps와 SRE" />
+
+  
+    <link rel="shortcut icon" href="/css/images/logo.png">
+  
+  <title>
+    
+      금융IT 인프라를 이루는 기술#1 | 금융ICT 인프라 이야기
+    
+  </title>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/css/plugins/gitment.css">
+
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+  <!--facebook share script-->
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  
+    
+<script src="/js/qrious.js"></script>
+
+  
+  
+    
+<script src="/js/gitment.js"></script>
+
+  
+  
+  
+    <!-- MathJax support START -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- MathJax support END -->
+  
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <!--<div class="logo"></div>-->
+      <span>금융ICT 인프라 이야기</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>금융IT 인프라를 이루는 기술#1</h2>
+  <p class="post-date">2016-07-16</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body flex-box">
+  <!-- Article START -->
+  <article class="post-article">
+    <section class="markdown-content"><h2 id="365일-24시간-고객의-거래를-지키는-기술들"><a href="#365일-24시간-고객의-거래를-지키는-기술들" class="headerlink" title="365일 24시간 고객의 거래를 지키는 기술들"></a>365일 24시간 고객의 거래를 지키는 기술들</h2><p> IT 업계에 있는 사람들은 새로운 스타트업 혹은 이미 성과를 이룬 기업들이 어떤 기술 스택을 사용할까 하는 궁금증을 가진다. 주로 사용하는 프로그래밍 언어부터 OS, 미들웨어, DB 등의 Infra S/W, 모니터링은 어떻게 할까? H/A를 위한 이중화 삼중화는 어떤 기술(솔루션)로 구현했나? 비교적 보수적인 금융IT 업계에 있다 보니 요즘 스타트업, 현재 열심히 구현 중일 인터넷 전업은행은 얼마나 참신한 기술을 쓸지 궁금하다. 비슷하게 금융IT를 이루는 기술 스택을 궁금해하는 사람들이 많고 알고 있는 내용을 정리하는 것도 좋을 것 같아 이 포스트를 쓴다.</p>
+<h2 id="서버와-운영체제"><a href="#서버와-운영체제" class="headerlink" title="서버와 운영체제"></a>서버와 운영체제</h2><p> 요새 IT를 시작하시는 사람들은 모르는 “메인프레임”이란 서버 플랫폼이 있었다. IBM Z 시리즈로 대표되는 메인프레임은 은행의 대표적인 계정계 시스템이었다. 이 메인프레임은 2000년대 초중반 “금융권 차세대 프로젝트”를 통해 Unix 시스템으로 전환되었다. 현재는 이 인프라가 유지되고 있다. </p>
+<p> Unix 시스템을 공급하는 회사는 전통적인 IT 기업 3사이다. HP, IBM, Sun MicroSystems HP는 현재 Printer와 PC 사업부와 분리된 HPE로 변하였고 Sun은 Oracle에 인수되었다. </p>
+<p> HP는 전통적인 Unix 시스템의 강자이다. 과거에는 PA-Risc라는 CPU를 자체 개발하였고, HP-UX라는 안정적인 Unix 운영체제도 가지고 있다. CPU를 개발하는 비용 대비 효율을 생각하였는지 Intel의 Itanium2 chip을 사용하는 것으로 선회하였다. 현재까지도 Intel과 돈독한 파트너십을 유지하고 있다. HP 시스템 중 가장 인기가 많고 유명한 것이 Superdome이다. 이름부터 먼가 있어 보인다. 지금의 2세대 Superdome은 표준 랙과 비슷한 이미지로 퇴색되었지만 1세대 Superdome은 전산실에서 압도적인 풍모를 자랑했다. High-End 시스템답게 nPar라고 하는 H/W Partitioning 기술 등 여러 고급 기술들이 녹아있다. Spec 또한 굉장해서 최대 256 cores 까지 확장할 수 있다. (256 cores 대단하다.)</p>
+<p> IBM은 원래 전통적인 IT 공룡 기업으로 H/W S/W 할 것 없이 없는 것 말고 다 있다. 금융권에는 메인프레임을 공급해오던 벤더였으나, 메임프레임의 쇠퇴와 함께 주력 시스템을 Unix로 전환하였다. 금융권에서는 메인프레임을 이상하리만큼 선호했다. IBM 입장에서는 훌륭한 효자 상품이었다. 하지만 시대가 변하고 Unix 시스템의 안전성과 성능이 크게 향상되어 이를 대체하게 되었다. IBM은 잘 나가던 형의 자리를 교체하는 입찰에 둘째에게 형의 정장을 입히고 나서게 하는 아이러니 한 상황도 연출되었다. 현재 금융권에서 사용하고 있는 IBM Unix 시스템은 Power8 chip 기반의 AIX 운영체제로 운영된다.</p>
+<p> 마지막으로 Oracle 은 Sun MicroSystems를 인수해서 H/W 시장에 진입했다. Sun은 Sparc이라는 CPU를 바탕으로 Solaris라는 자사의 운영체제를 탑재한 Unix 시스템으로 한 때 높은 점유율을 가지고 있었다. 하지만 시장에 변화에 기민하게 대처하지 못 해 여러 가지 부침을 겪다 Oracle에 인수되었다. 그런 Sun에도 높은 유산이 있다. C, C++ 일색이던 프로그래밍 언어 생태계에서 Java라는 걸출한 스타를 만든 것이 Sun이었고, Solaris라는 훌륭한 운영체제도 있다.  </p>
+<p> 이렇게 Unix 시스템으로 유지되던 금융IT 인프라에서 조금씩 변화가 생기고 있다. 이미 증권회사들은 리눅스 도입을 꺼리지 않고 은행, 카드회사들도 중요 업무에 리눅스를 도입하고 있다. 빅데이터, 머신러닝, 클라우드가 일상이 되는 현재 금융권 리눅스 도입은 더 가속화될 것으로 예상한다.</p>
+<h2 id="고가용성-솔루션"><a href="#고가용성-솔루션" class="headerlink" title="고가용성 솔루션"></a>고가용성 솔루션</h2><p> 고가용성 솔루션. 영어를 한자어로 번역하다 보니 오히려 직관적으로 이해하기 어렵다. 쉽게 말해 시스템은 죽어도 서비스는 중단되지 않도록 하는 솔루션이다. 금융권의 서비스는 다른 어떤 서비스보다 고객의 양해가 박하다. 매일 들어가는 블로그가 안 돼도 너그럽게 용서하는 사람도 주말에 장을 보면서 내민 카드가 안 된다고 하면 화를 참을 수 없을 것이다. 때문에 금융권의 IT 인프라는 가능한 모든 층위의 컴포넌트에 이중화, 삼중화를 한다. 예를 들면 Network Card, System, Switch, Storage 등의 장애를 고려한다.</p>
+<h3 id="Network-Interface-Card"><a href="#Network-Interface-Card" class="headerlink" title="Network Interface Card"></a>Network Interface Card</h3><ul>
+<li>현재 Server에서 사용하는 OS는 거의 대부분이 NIC 이중화 솔루션을 제공한다. 예전에는 별도의 비용을 지불하는 S/W 였으나 지금은 OS에 번들로 포함되어 있다. 이름은 각 벤더별로 다르지만 기능은 동일하다. NIC 2개를 혹은 그 이상을 묶어서 대역폭을 높이거나 NIC 하나의 장애 시에도 통신이 문제가 없도록 하는 것이다. 구성할 때 다른 Switch 에 연결함으로써 Switch 장애 시에도 문제가 없도록 구성한다.<ul>
+<li>HP-UX : APA (Auto Port Aggregation) </li>
+<li>AIX : AIX Etherchannel</li>
+<li>Solaris : IPMP (IP Multi-Pathing)</li>
+</ul>
+</li>
+</ul>
+<h3 id="System-Clustering"><a href="#System-Clustering" class="headerlink" title="System ( Clustering )"></a>System ( Clustering )</h3><ul>
+<li>System은 보통 이중화 삼중화라는 표현을 쓴다. 동일한 서비스를 제공하는 시스템을 여러 개로 구성하여 서비스의 연속성을 보장한다. 여기에는 기본적으로 필요한 기능이 있다. Cluster로 묶인 서버들의 상태를 확인하기 위한 통신(Heartbeat)과 공유 디스크를 관리하는 기술이다. 각 벤더별로 이런 System clustering을 제공한다. 아래는 HP-UX에서 사용하는 MC Serviceguard에서 권고하는 구성이다.<br><img src="/images/mcsg.png" alt="MC-SG - hp-ux H/A solution"></li>
+<li>Oracle DB의 Clustering 기술인 RAC가 포함되어 복잡하지만 System Clustering의 구조를 잘 볼 수 있다. Heartbeat(SG-HB, CSS-HB)은 Cluster에 포함되어 있는 노드들이 서로 상태를 체크하기 위한 통신이고, Shared Disk 기술은 동일 업무를 하는 노드들에서 정합성을 유지하기 위한 기술이다.<br>System Clusering을 이해하기 위해서는 설명해야 하는 개념이 많아 각 벤더별 Clustering을 소개하며 마무리하겠다.   <ul>
+<li>HP-UX : MC/SG (Mision Critical Service Guard)</li>
+<li>AIX : HACMP (High Availability Cluster Multiprocessing)</li>
+<li>Solaris : Sun Cluster</li>
+</ul>
+</li>
+</ul>
+<h3 id="Storage-Multi-Path"><a href="#Storage-Multi-Path" class="headerlink" title="Storage (Multi-Path)"></a>Storage (Multi-Path)</h3><ul>
+<li>Stroage 자체의 이중화는 Raid라는 유명한 기술로 구현되어 있다. 워낙 유명한 기술이라 이 포스트에서는 논하지 않아도 될 것 같다. 금융IT 환경에서는 Storage로 가는 길을 다중화하는 것으로 가용성을 높인다. 시스템의 FC HBA(Fibre Channel Host Bus Adaptor)를 여러 개 꽂아서 다른 SAN Switch에 연결하여 같은 디스크로 가는 Path를 이중화한다. 디스크로 가는 길이 여럿이다 보니 OS에서는 LUN(Logical Unit Number)이라 부르는 Disk가 여러 개로 보인다. 이 여러 개로 보이는 디스크를 하나로 보이게 만드는 것이 Multi-Path이다. Multi-Path를 통해 FC 및 San Switch의 장애에도 Storage에 접근할 수 있다.</li>
+</ul>
+<hr>
+<p><strong><em>이 글은 과거 브런치에 쓴 글을 옮긴 post 입니다. (현재와는 내용이 다른 부분이 있습니다.)</em></strong></p>
+<p><em>1. 위에 글은 2016년에 쓴 글로 현재는 Linux를 많이 사용하고 있고, U2L이란 이름으로 대부분의 workload가 전환되고 있습니다.</em><br><em>2. 계정계라 불리는 core 시스템은 대부분의 은행에서 여전히 Unix를 사용하고 있지만 향후 전환할 계획을 가지고 있습니다.</em><br><em>3. <a href="https://stackshare.io/" target="_blank" rel="noopener">stackshare.io</a> 같은 site에서 스타트업의 기술 스택을 볼 수 있습니다.</em></p>
+</section>
+    <!-- tag and share START-->
+    <div class=tag_and_share>
+    <!-- Tags START -->
+      
+        <div class="tags">
+          <span>Tags:</span>
+          
+  <a href="/tags#finance" >
+    <span class="tag-code">finance</span>
+  </a>
+
+        </div>
+      
+    <!--facebook share icon-->
+      <div class="share-facebook">
+        <div class="fb-share-button" 
+        data-href="2016/07/16/financial_Ict_01/"
+        data-layout="button_count">
+        </div>
+      </div>
+    </div>
+    <!-- Tags END -->
+    <!-- NAV START -->
+    
+  <div class="nav-container">
+    <!-- reverse left and right to put prev and next in a more logic postition -->
+    
+      <a class="nav-left" href="/2016/07/08/programming_as_a_hobby/">
+        <span class="nav-arrow">← </span>
+        
+          취미로의 프로그래밍을 꿈꾸며...
+        
+      </a>
+    
+    
+      <a class="nav-right" href="/2016/08/02/financial_ict_02/">
+        
+          금융IT 인프라를 이루는 기술#2
+        
+        <span class="nav-arrow"> →</span>
+      </a>
+    
+  </div>
+
+    <!-- NAV END -->
+    <!-- 打赏 START -->
+    <!--
+    
+      <div class="money-like">
+        <div class="reward-btn">
+          赏
+          <span class="money-code">
+            <span class="alipay-code">
+              <div class="code-image"></div>
+              <b>使用支付宝打赏</b>
+            </span>
+            <span class="wechat-code">
+              <div class="code-image"></div>
+              <b>使用微信打赏</b>
+            </span>
+          </span>
+        </div>
+        <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+      </div>
+    
+    -->
+    <!-- 打赏 END -->
+    <!-- 二维码 START -->
+    <!--
+    
+      <div class="qrcode">
+        <canvas id="share-qrcode"></canvas>
+        <p class="notice">扫描二维码，分享此文章</p>
+      </div>
+    
+    -->
+    <!-- 二维码 END -->
+    
+      <!-- Gitment START -->
+      <div id="comments"></div>
+      <!-- Gitment END -->
+    
+  </article>
+  <!-- Article END -->
+  <!-- Catalog START -->
+  
+    <aside class="catalog-container">
+  <div class="toc-main">
+    <strong class="toc-title">Catalog</strong>
+    
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#365일-24시간-고객의-거래를-지키는-기술들"><span class="toc-nav-text">365일 24시간 고객의 거래를 지키는 기술들</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#서버와-운영체제"><span class="toc-nav-text">서버와 운영체제</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#고가용성-솔루션"><span class="toc-nav-text">고가용성 솔루션</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Network-Interface-Card"><span class="toc-nav-text">Network Interface Card</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#System-Clustering"><span class="toc-nav-text">System ( Clustering )</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Storage-Multi-Path"><span class="toc-nav-text">Storage (Multi-Path)</span></a></li></ol></li></ol>
+    
+  </div>
+</aside>
+  
+  <!-- Catalog END -->
+</main>
+
+<script>
+  (function () {
+    var url = 'http://ziyocode.github.io/2016/07/16/financial_Ict_01/';
+    var banner = ''
+    if (banner !== '' && banner !== 'undefined' && banner !== 'null') {
+      $('#article-banner').css({
+        'background-image': 'url(' + banner + ')'
+      })
+    } else {
+      $('#article-banner').geopattern(url)
+    }
+    $('.header').removeClass('fixed-header')
+
+    // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png')
+      $(this).css({
+        'cursor': 'default'
+      })
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      if (src !== 'http://file.muyutech.com/error-img.png') {
+        var imageW = $(this).width()
+        var imageH = $(this).height()
+
+        var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+        zoom = zoom < 1 ? 1 : zoom
+        zoom = zoom > 2 ? 2 : zoom
+        var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+        $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+        $('.image-view-wrap').addClass('wrap-active')
+        $('.image-view-wrap img').css({
+          'width': `${imageW}`,
+          'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+        })
+        $('html').css('overflow', 'hidden')
+
+        $('.image-view-wrap').on('click', function() {
+          $(this).remove()
+          $('html').attr('style', '')
+        })
+      }
+    })
+  })();
+</script>
+
+
+  <script>
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+  </script>
+
+
+
+  <script>
+    var gitmentConfig = "yanm1ng";
+    if (gitmentConfig !== 'undefined') {
+      var gitment = new Gitment({
+        id: "금융IT 인프라를 이루는 기술#1",
+        owner: "yanm1ng",
+        repo: "yanm1ng.github.io",
+        oauth: {
+          client_id: "0f87e490e00ee3fd87ef",
+          client_secret: "4a9d2b148e7971c2201ad12131ce8bf8159ccd2e"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  </script>
+
+
+
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer>
+  <address class="app-footer">
+  <div class="information">
+    <div class="copyright-left">
+      <p><strong>Contact</strong></p>
+      <br>
+      <ul>
+        <li>
+          <i class="fa fa-envelope-o"></i>
+          <a href="mailto:ziyocode@gmail.com" target="_blank">ziyocode@gmail.com</a>
+        </li>
+        <li>
+          <i class="fa fa-facebook"></i>
+          <a href="https://www.facebook.com/ziyocode" target="_blank"><span>www.facebook.com/ziyocode</span></a>
+        </li>
+        <li>
+          <i class="fa fa-github"></i>
+          <a href="https://www.github.com/ziyocode" target="_blank"><span>www.github.com/ziyocode</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="copyright-right">
+      <p>
+          DevOps, Site Reliability Engineering Story
+          <br>
+          &copy; YoungKook Cho. 2020 |
+          Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+      </p>
+    </div>
+  </div>
+  </address>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+
+<script>
+  var hasLine = 'true';
+  async("//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine === 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
