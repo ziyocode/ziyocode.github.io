@@ -292,6 +292,27 @@ h2.article-head {
 #uyan_frame {
   margin-top: 20px;
 }
+.comments-section {
+  margin-top: 20px;
+}
+.giscus-container {
+  width: 100%;
+}
+.giscus-container .giscus-comments {
+  width: 100%;
+}
+.giscus-container .giscus-comments .giscus,
+.giscus-container .giscus-comments .giscus-frame {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.giscus-container .giscus-comments iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+#comments {
+  width: 100%;
+}
 .image-view-wrap {
   position: fixed;
   top: 0;
