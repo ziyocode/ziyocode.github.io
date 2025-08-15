@@ -252,8 +252,12 @@
 
     <!-- NAV END -->
     
-      <!-- Giscus START -->
-      <div id="comments"></div>
+    <!-- Comments section inside post-article -->
+    
+      <!-- Giscus START - inside post-article for proper alignment -->
+      <div class="comments-section giscus-container">
+        <div id="comments" class="giscus-comments"></div>
+      </div>
       <!-- Giscus END -->
     
   </article>
@@ -332,21 +336,72 @@
 
 
 
-  <script src="https://giscus.app/client.js"
-          data-repo="ziyocode/ziyocode.github.io"
-          data-repo-id=""
-          data-category="General"
-          data-category-id=""
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="bottom"
-          data-theme="light"
-          data-lang="ko"
-          crossorigin="anonymous"
-          async>
+  <script>
+    // Ensure #comments container exists before loading Giscus
+    document.addEventListener('DOMContentLoaded', function() {
+      const commentsContainer = document.querySelector('#comments');
+      if (commentsContainer) {
+        // Load Giscus script targeting #comments specifically
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.setAttribute('data-repo', 'ziyocode/ziyocode.github.io');
+        script.setAttribute('data-repo-id', '');
+        script.setAttribute('data-category', 'General');
+        script.setAttribute('data-category-id', '');
+        script.setAttribute('data-mapping', 'pathname');
+        script.setAttribute('data-strict', '0');
+        script.setAttribute('data-reactions-enabled', '1');
+        script.setAttribute('data-emit-metadata', '0');
+        script.setAttribute('data-input-position', 'bottom');
+        script.setAttribute('data-theme', 'light');
+        script.setAttribute('data-lang', 'ko');
+        script.setAttribute('crossorigin', 'anonymous');
+        script.async = true;
+        
+        // Insert the script right before #comments so Giscus targets it
+        commentsContainer.appendChild(script);
+      }
+    });
   </script>
+  <script>
+    // Ensure Giscus elements are properly positioned inside #comments
+    function ensureGiscusPosition() {
+      const commentsContainer = document.querySelector('#comments');
+      const giscusElements = document.querySelectorAll('.giscus');
+      
+      // Move any .giscus elements to #comments if they're not already there
+      giscusElements.forEach(giscusEl => {
+        if (giscusEl.parentElement !== commentsContainer) {
+          commentsContainer.appendChild(giscusEl);
+        }
+        
+        // Ensure proper styling
+        giscusEl.style.width = '100%';
+        giscusEl.style.maxWidth = '100%';
+      });
+      
+      // Also handle iframes
+      const giscusFrames = document.querySelectorAll('iframe[src*="giscus"]');
+      giscusFrames.forEach(frame => {
+        frame.style.maxWidth = '100%';
+        frame.style.width = '100%';
+      });
+    }
+    
+    // Monitor for Giscus creation
+    const observer = new MutationObserver(ensureGiscusPosition);
+    observer.observe(document.body, { 
+      childList: true, 
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['class']
+    });
+    
+    setTimeout(ensureGiscusPosition, 1000);
+    setTimeout(ensureGiscusPosition, 3000);
+    setTimeout(ensureGiscusPosition, 5000);
+  </script>
+
 
     <div class="scroll-top">
   <span class="arrow-icon"></span>
