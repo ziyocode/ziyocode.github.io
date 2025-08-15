@@ -28,9 +28,7 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-    
-<link rel="stylesheet" href="/css/plugins/gitment.css">
-
+    <!-- Giscus CSS는 스크립트에서 자동 로드 -->
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
@@ -58,10 +56,6 @@
 
   
   
-    
-<script src="/js/gitment.js"></script>
-
-  
   
   
     <!-- MathJax support START -->
@@ -88,7 +82,7 @@
   
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
   <body>
     <header class="header fixed-header">
   <div class="header-container">
@@ -212,7 +206,7 @@
 <ol>
 <li>현재 시점(2019년)에 다시 읽어보니 제가 일하는 금융권의 인프라는 크지 변하지 않은 것 같습니다. 서비스 신뢰성을 최우선 과제로 놓다 보니 새로운 기술을 적용하는데 더딘 것 같습니다.</li>
 <li>아시겠지만 NginX는 시장에서 검증이 끝났듯 보입니다. 대부분의 스타트업, 유니콘 기업에서 사용하는 web 서버가 됬습니다.</li>
-<li>최근에 f5사가 NginX를 인수했다는 뉴스가 있었습니다. <a href="https://www.nginx.com/blog/nginx-joins-f5/" target="_blank" rel="noopener">News : Nginx to Join F5</a></li>
+<li>최근에 f5사가 NginX를 인수했다는 뉴스가 있었습니다. <a target="_blank" rel="noopener" href="https://www.nginx.com/blog/nginx-joins-f5/">News : Nginx to Join F5</a></li>
 </ol>
 </section>
     <!-- tag and share START-->
@@ -259,11 +253,10 @@
   </div>
 
     <!-- NAV END -->
-    <!--
     
-      <!-- Gitment START -->
-      <!--<div id="comments"></div>-->
-      <!-- Gitment END -->
+      <!-- Giscus START -->
+      <div id="comments"></div>
+      <!-- Giscus END -->
     
   </article>
   <!-- Article END -->
@@ -273,7 +266,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Web-서버와-WAS"><span class="toc-nav-text">Web 서버와 WAS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Web-서버-어떤-것을-사용할까"><span class="toc-nav-text">Web 서버, 어떤 것을 사용할까?</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Was-어떤-것을-사용할까"><span class="toc-nav-text">Was, 어떤 것을 사용할까?</span></a></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Web-%EC%84%9C%EB%B2%84%EC%99%80-WAS"><span class="toc-nav-text">Web 서버와 WAS</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Web-%EC%84%9C%EB%B2%84-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C"><span class="toc-nav-text">Web 서버, 어떤 것을 사용할까?</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Was-%EC%96%B4%EB%96%A4-%EA%B2%83%EC%9D%84-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C"><span class="toc-nav-text">Was, 어떤 것을 사용할까?</span></a></li></ol>
     
   </div>
 </aside>
@@ -331,7 +324,6 @@
   })();
 </script>
 
-<!--
 
   <script>
     var qr = new QRious({
@@ -341,39 +333,23 @@
   </script>
 
 
-  <script>
-    var gitmentConfig = "yanm1ng";
-    if (gitmentConfig !== 'undefined') {
-      var gitment = new Gitment({
-        id: "금융IT 인프라를 이루는 기술#2",
-        owner: "yanm1ng",
-        repo: "yanm1ng.github.io",
-        oauth: {
-          client_id: "9fce947d481f6347df54",
-          client_secret: "a3c4f0e3715aaf1d5706cda5b7d3c6448948a39c"
-        },
-        theme: {
-          render(state, instance) {
-            const container = document.createElement('div')
-            container.lang = "en-US"
-            container.className = 'gitment-container gitment-root-container'
-            container.appendChild(instance.renderHeader(state, instance))
-            container.appendChild(instance.renderEditor(state, instance))
-            container.appendChild(instance.renderComments(state, instance))
-            container.appendChild(instance.renderFooter(state, instance))
-            return container;
-          }
-        }
-      })
-      gitment.render(document.getElementById('comments'))
-    }
+
+  <script src="https://giscus.app/client.js"
+          data-repo="ziyocode/ziyocode.github.io"
+          data-repo-id=""
+          data-category="General"
+          data-category-id=""
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="ko"
+          crossorigin="anonymous"
+          async>
   </script>
- 
 
-
-
-
- -->
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>
@@ -402,8 +378,8 @@
       <p>
           DevOps, Site Reliability Engineering Story
           <br>
-          &copy; YoungKook Cho. 2020 |
-          Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+          &copy; YoungKook Cho. 2025 |
+          Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng">yanm1ng</a>
       </p>
     </div>
   </div>

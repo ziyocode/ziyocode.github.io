@@ -28,9 +28,7 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-    
-<link rel="stylesheet" href="/css/plugins/gitment.css">
-
+    <!-- Giscus CSS는 스크립트에서 자동 로드 -->
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
@@ -58,10 +56,6 @@
 
   
   
-    
-<script src="/js/gitment.js"></script>
-
-  
   
   
     <!-- MathJax support START -->
@@ -88,7 +82,7 @@
   
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
   <body>
     <header class="header fixed-header">
   <div class="header-container">
@@ -212,7 +206,7 @@
 </ul>
 <hr>
 <p><strong><em>이 글은 과거 브런치에 쓴 글을 옮긴 post 입니다. (현재와는 내용이 다른 부분이 있습니다.)</em></strong></p>
-<p><em>1. 위에 글은 2016년에 쓴 글로 현재는 Linux를 많이 사용하고 있고, U2L이란 이름으로 대부분의 workload가 전환되고 있습니다.</em><br><em>2. 계정계라 불리는 core 시스템은 대부분의 은행에서 여전히 Unix를 사용하고 있지만 향후 전환할 계획을 가지고 있습니다.</em><br><em>3. <a href="https://stackshare.io/" target="_blank" rel="noopener">stackshare.io</a> 같은 site에서 스타트업의 기술 스택을 볼 수 있습니다.</em></p>
+<p><em>1. 위에 글은 2016년에 쓴 글로 현재는 Linux를 많이 사용하고 있고, U2L이란 이름으로 대부분의 workload가 전환되고 있습니다.</em><br><em>2. 계정계라 불리는 core 시스템은 대부분의 은행에서 여전히 Unix를 사용하고 있지만 향후 전환할 계획을 가지고 있습니다.</em><br><em>3. <a target="_blank" rel="noopener" href="https://stackshare.io/">stackshare.io</a> 같은 site에서 스타트업의 기술 스택을 볼 수 있습니다.</em></p>
 </section>
     <!-- tag and share START-->
     <div class=tag_and_share>
@@ -258,11 +252,10 @@
   </div>
 
     <!-- NAV END -->
-    <!--
     
-      <!-- Gitment START -->
-      <!--<div id="comments"></div>-->
-      <!-- Gitment END -->
+      <!-- Giscus START -->
+      <div id="comments"></div>
+      <!-- Giscus END -->
     
   </article>
   <!-- Article END -->
@@ -272,7 +265,7 @@
   <div class="toc-main">
     <strong class="toc-title">Catalog</strong>
     
-      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#365일-24시간-고객의-거래를-지키는-기술들"><span class="toc-nav-text">365일 24시간 고객의 거래를 지키는 기술들</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#서버와-운영체제"><span class="toc-nav-text">서버와 운영체제</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#고가용성-솔루션"><span class="toc-nav-text">고가용성 솔루션</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Network-Interface-Card"><span class="toc-nav-text">Network Interface Card</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#System-Clustering"><span class="toc-nav-text">System ( Clustering )</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Storage-Multi-Path"><span class="toc-nav-text">Storage (Multi-Path)</span></a></li></ol></li></ol>
+      <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#365%EC%9D%BC-24%EC%8B%9C%EA%B0%84-%EA%B3%A0%EA%B0%9D%EC%9D%98-%EA%B1%B0%EB%9E%98%EB%A5%BC-%EC%A7%80%ED%82%A4%EB%8A%94-%EA%B8%B0%EC%88%A0%EB%93%A4"><span class="toc-nav-text">365일 24시간 고객의 거래를 지키는 기술들</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%EC%84%9C%EB%B2%84%EC%99%80-%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C"><span class="toc-nav-text">서버와 운영체제</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#%EA%B3%A0%EA%B0%80%EC%9A%A9%EC%84%B1-%EC%86%94%EB%A3%A8%EC%85%98"><span class="toc-nav-text">고가용성 솔루션</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Network-Interface-Card"><span class="toc-nav-text">Network Interface Card</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#System-Clustering"><span class="toc-nav-text">System ( Clustering )</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Storage-Multi-Path"><span class="toc-nav-text">Storage (Multi-Path)</span></a></li></ol></li></ol>
     
   </div>
 </aside>
@@ -330,7 +323,6 @@
   })();
 </script>
 
-<!--
 
   <script>
     var qr = new QRious({
@@ -340,39 +332,23 @@
   </script>
 
 
-  <script>
-    var gitmentConfig = "yanm1ng";
-    if (gitmentConfig !== 'undefined') {
-      var gitment = new Gitment({
-        id: "금융IT 인프라를 이루는 기술#1",
-        owner: "yanm1ng",
-        repo: "yanm1ng.github.io",
-        oauth: {
-          client_id: "9fce947d481f6347df54",
-          client_secret: "a3c4f0e3715aaf1d5706cda5b7d3c6448948a39c"
-        },
-        theme: {
-          render(state, instance) {
-            const container = document.createElement('div')
-            container.lang = "en-US"
-            container.className = 'gitment-container gitment-root-container'
-            container.appendChild(instance.renderHeader(state, instance))
-            container.appendChild(instance.renderEditor(state, instance))
-            container.appendChild(instance.renderComments(state, instance))
-            container.appendChild(instance.renderFooter(state, instance))
-            return container;
-          }
-        }
-      })
-      gitment.render(document.getElementById('comments'))
-    }
+
+  <script src="https://giscus.app/client.js"
+          data-repo="ziyocode/ziyocode.github.io"
+          data-repo-id=""
+          data-category="General"
+          data-category-id=""
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="ko"
+          crossorigin="anonymous"
+          async>
   </script>
- 
 
-
-
-
- -->
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>
@@ -401,8 +377,8 @@
       <p>
           DevOps, Site Reliability Engineering Story
           <br>
-          &copy; YoungKook Cho. 2020 |
-          Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+          &copy; YoungKook Cho. 2025 |
+          Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng">yanm1ng</a>
       </p>
     </div>
   </div>

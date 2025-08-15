@@ -28,9 +28,7 @@
 <link rel="stylesheet" href="/css/style.css">
 
   
-    
-<link rel="stylesheet" href="/css/plugins/gitment.css">
-
+    <!-- Giscus CSS는 스크립트에서 자동 로드 -->
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/geopattern/1.2.3/js/geopattern.min.js"></script>
@@ -58,10 +56,6 @@
 
   
   
-    
-<script src="/js/gitment.js"></script>
-
-  
   
   
     <!-- MathJax support START -->
@@ -88,7 +82,7 @@
   
 
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 7.3.0"></head>
   <body>
     <header class="header fixed-header">
   <div class="header-container">
@@ -174,7 +168,7 @@
 
     <div id="article-banner">
   <h2>Archive</h2>
-  <p class="post-date">2020-02-15</p>
+  <p class="post-date">2025-03-01</p>
   <div class="arrow-down">
     <a href="javascript:;"></a>
   </div>
@@ -198,11 +192,10 @@
     <!-- NAV START -->
     
     <!-- NAV END -->
-    <!--
     
-      <!-- Gitment START -->
-      <!--<div id="comments"></div>-->
-      <!-- Gitment END -->
+      <!-- Giscus START -->
+      <div id="comments"></div>
+      <!-- Giscus END -->
     
   </article>
   <!-- Article END -->
@@ -270,7 +263,6 @@
   })();
 </script>
 
-<!--
 
   <script>
     var qr = new QRious({
@@ -280,39 +272,23 @@
   </script>
 
 
-  <script>
-    var gitmentConfig = "yanm1ng";
-    if (gitmentConfig !== 'undefined') {
-      var gitment = new Gitment({
-        id: "Archive",
-        owner: "yanm1ng",
-        repo: "yanm1ng.github.io",
-        oauth: {
-          client_id: "9fce947d481f6347df54",
-          client_secret: "a3c4f0e3715aaf1d5706cda5b7d3c6448948a39c"
-        },
-        theme: {
-          render(state, instance) {
-            const container = document.createElement('div')
-            container.lang = "en-US"
-            container.className = 'gitment-container gitment-root-container'
-            container.appendChild(instance.renderHeader(state, instance))
-            container.appendChild(instance.renderEditor(state, instance))
-            container.appendChild(instance.renderComments(state, instance))
-            container.appendChild(instance.renderFooter(state, instance))
-            return container;
-          }
-        }
-      })
-      gitment.render(document.getElementById('comments'))
-    }
+
+  <script src="https://giscus.app/client.js"
+          data-repo="ziyocode/ziyocode.github.io"
+          data-repo-id=""
+          data-category="General"
+          data-category-id=""
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="ko"
+          crossorigin="anonymous"
+          async>
   </script>
- 
 
-
-
-
- -->
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>
@@ -341,8 +317,8 @@
       <p>
           DevOps, Site Reliability Engineering Story
           <br>
-          &copy; YoungKook Cho. 2020 |
-          Theme by <a href="https://github.com/yanm1ng" target="_blank" rel="noopener">yanm1ng</a>
+          &copy; YoungKook Cho. 2025 |
+          Theme by <a target="_blank" rel="noopener" href="https://github.com/yanm1ng">yanm1ng</a>
       </p>
     </div>
   </div>
