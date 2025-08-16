@@ -414,6 +414,14 @@ h2.article-head {
   font-size: 1.5em;
   line-height: 40px;
 }
+.home-link .logo-terminal {
+  width: 28px;
+  height: 28px;
+  max-width: 28px;
+  max-height: 28px;
+  margin-right: 8px;
+  object-fit: contain;
+}
 .right-list {
   list-style: none;
   float: right;
